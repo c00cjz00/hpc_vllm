@@ -4,6 +4,11 @@
 ```bash
 ssh $ACCOUNT@login ln01.twcc.ai
 ```
+### 互動模型
+```bash
+# 互動節點
+bash interactivate.sh
+```
 
 ### 工作配送單節點或多節點
 ```bash
