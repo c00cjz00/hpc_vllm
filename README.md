@@ -1,9 +1,15 @@
 ## hpc_vllm
 
-### 登入 HPC
+### 登入 HPC 並下載相關套件
 ```bash
 ssh $ACCOUNT@login ln01.twcc.ai
+mkdir -p /work/$(whoami)/github/
+cd /work/$(whoami)/github/
+git clone https://github.com/c00cjz00/hpc_vllm.git
+cd hpc_vllm
+singularity pull docker://vllm/vllm-openai:v0.7.3
 ```
+
 ### 互動模型
 ```bash
 # 互動節點
