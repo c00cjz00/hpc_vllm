@@ -14,8 +14,6 @@
 
 set -ex  ## 使腳本在執行錯誤時立即終止，並顯示執行的命令
 
-#ml singularity
-
 echo "SLURM_JOB_ID: $SLURM_JOB_ID"
 echo "SLURM_JOB_NODELIST: $SLURM_JOB_NODELIST"
 
