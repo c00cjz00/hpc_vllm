@@ -16,7 +16,7 @@ vllm serve \
 --tensor-parallel-size 2 \
 --swap-space 8 \
 --enforce-eager \
---host $(hostname) \
+--host $(hostname -s) \
 --port 8000 \
 --max-model-len 8192 \
 --api-key sk-
