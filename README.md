@@ -13,7 +13,7 @@ singularity pull docker://vllm/vllm-openai:v0.7.3
 ### 互動模型
 ```bash
 # 互動節點
-bash interactivate.sh
+bash vllm.sh
 ```
 
 ### 工作配送單節點或多節點
