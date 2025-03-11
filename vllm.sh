@@ -7,6 +7,7 @@ export NCCL_SOCKET_IFNAME=ib0,ib1  # 設定 InfiniBand 網卡，讓 NCCL 使用 
 
 ml singularity
 mkdir -p /work/$(whoami)/github/hpc_vllm/home
+# --swap-space 8 為每GPU補充 8G的記憶體
 singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_vllm/home:$HOME /work/$(whoami)/github/hpc_vllm/vllm-openai_v0.7.3.sif \
 vllm serve \
 --dtype=half Qwen/QwQ-32B \
