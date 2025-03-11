@@ -92,14 +92,11 @@ done
 #huggingface-cli download Qwen/QwQ-32B
 
 # 啟動 vLLM 服務, 其中 --tensor-parallel-size $(nvidia-smi -L | wc -l) --pipeline-parallel-size ${SLURM_NNODES} 分別為單節點GPU數量與工作分流節點數
-# --swap-space 32 為每GPU補充 32G的記憶體
+# --swap-space 32 為每GPU補充 8G的記憶體
 singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_vllm/home:$HOME /work/$(whoami)/github/hpc_vllm/vllm-openai_v0.7.3.sif \
 	bash -c "export VLLM_HOST_IP=${master_ip}; \
 	echo \$VLLM_HOST_IP; \
 	vllm serve --dtype=half Qwen/QwQ-32B --trust-remote-code --served-model-name \"QwQ-32B\" --gpu-memory-utilization 0.90 --tensor-parallel-size $(nvidia-smi -L | wc -l) --pipeline-parallel-size ${SLURM_NNODES} --host $(hostname -s) --port 8000 --max-model-len 8192 --api-key sk- --swap-space 8 --enforce-eager"
-
-
-sleep 10000
 
 # 等待一段時間，以確保 Ray 叢集啟動完畢
 echo "Waiting a bit before submitting the job..."
