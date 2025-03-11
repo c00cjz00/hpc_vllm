@@ -24,6 +24,8 @@ Qwen/QwQ-32B
 ### 互動模型 (請勿再登入節點跑)
 ```bash
 # 互動節點
+sbatch sleep.slurm
+ssh $(計算節點)
 bash vllm.sh
 ```
 
