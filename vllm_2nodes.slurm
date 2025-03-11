@@ -92,7 +92,7 @@ done
 #huggingface-cli download Qwen/QwQ-32B
 
 # 啟動 vLLM 服務, 其中 --tensor-parallel-size $(nvidia-smi -L | wc -l) --pipeline-parallel-size ${SLURM_NNODES} 分別為單節點GPU數量與工作分流節點數
-# --swap-space 32 為每GPU補充 8G的記憶體
+# --swap-space 8 為每GPU補充 8G的記憶體
 singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_vllm/home:$HOME /work/$(whoami)/github/hpc_vllm/vllm-openai_v0.7.3.sif \
 	bash -c "export VLLM_HOST_IP=${master_ip}; \
 	echo \$VLLM_HOST_IP; \
