@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=vllm01    		## 設定作業名稱
-#SBATCH --nodes=1                	## 申請 1 個計算節點
-#SBATCH --ntasks-per-node=1      	## 每個節點運行 1 個 srun task
-#SBATCH --cpus-per-task=32        	## 每個 srun task 申請 32 個 CPU 核心
-#SBATCH --gres=gpu:8             	## 每個節點申請 8 張 GPU
-#SBATCH --time=01:00:00          	## 設定最長執行時間為 60 分鐘
-#SBATCH --account="GOV113021"   	## 指定計畫 ID，費用將依此 ID 計算
-#SBATCH --partition=gp4d        	## 選擇計算資源的 queue (gp4d 最長執行 4 天)
+#SBATCH --job-name=vllm01    		    ## 設定作業名稱
+#SBATCH --nodes=1                  	## 申請 1 個計算節點
+#SBATCH --ntasks-per-node=1      	  ## 每個節點運行 1 個 srun task
+#SBATCH --cpus-per-task=8        	  ## 每個 srun task 申請 8 個 CPU 核心
+#SBATCH --gres=gpu:2             	  ## 每個節點申請 2 張 GPU
+#SBATCH --time=01:00:00          	  ## 設定最長執行時間為 60 分鐘
+#SBATCH --account="GOV113021"   	  ## 指定計畫 ID，費用將依此 ID 計算
+#SBATCH --partition=gp1d        	  ## 選擇計算資源的 queue (gp4d 最長執行 1 天)
 #SBATCH --output=logs/job-%j.out    ## 設定標準輸出檔案 (%j 代表作業 ID)
 #SBATCH --error=logs/job-%j.err     ## 設定錯誤輸出檔案 (%j 代表作業 ID)
 #SBATCH --mail-type=END,FAIL        ## 設定郵件通知類型 (作業結束或失敗時通知)
