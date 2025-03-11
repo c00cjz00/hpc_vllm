@@ -10,7 +10,18 @@ cd hpc_vllm
 singularity pull docker://vllm/vllm-openai:v0.7.3
 ```
 
-### 互動模型
+### 依照自己的需求編修 vllm.sh , vllm_1node.slurm , vllm_2nodes.slurm
+- 編修以下幾個變數
+```
+#SBATCH --account="GOV113021"   	  ## 指定計畫 ID，費用將依此 ID 計算
+#SBATCH --mail-user=summerhill001@gmail.com  ## 設定接收通知的信箱
+--tensor-parallel-size 2
+--pipeline-parallel-size 1
+Qwen/QwQ-32B
+--served-model-name "QwQ-32B"
+```
+
+### 互動模型 (請勿再登入節點跑)
 ```bash
 # 互動節點
 bash vllm.sh
