@@ -28,7 +28,7 @@ singularity pull docker://vllm/vllm-openai:v0.7.3
 ### HF 登入
 ```
 cd /work/$(whoami)/github/hpc_vllm
-singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_vllm/home:$HOME /work/$(whoami)/github/hpc_vllm/vllm-openai_v0.7.3.sif huggingface-cli
+singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_vllm/home:$HOME /work/$(whoami)/github/hpc_vllm/vllm-openai_v0.7.3.sif huggingface-cli login
 ```
 
 ### Gemma-3 要更新 transformers
