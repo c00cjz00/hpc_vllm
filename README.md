@@ -25,6 +25,12 @@ cd hpc_vllm
 singularity pull docker://vllm/vllm-openai:v0.7.3
 ```
 
+### HF 登入
+```
+cd /work/$(whoami)/github/hpc_vllm
+singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_vllm/home:$HOME /work/$(whoami)/github/hpc_vllm/vllm-openai_v0.7.3.sif huggingface-cli
+```
+
 ### 依照自己的需求編修 vllm.sh , vllm_1node.slurm , vllm_2nodes.slurm
 - 編修以下幾個變數
 ```
