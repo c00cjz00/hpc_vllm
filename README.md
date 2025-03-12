@@ -31,6 +31,12 @@ cd /work/$(whoami)/github/hpc_vllm
 singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_vllm/home:$HOME /work/$(whoami)/github/hpc_vllm/vllm-openai_v0.7.3.sif huggingface-cli
 ```
 
+### Gemma-3 要更新 transformers
+```
+cd /work/$(whoami)/github/hpc_vllm
+singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_vllm/home:$HOME /work/$(whoami)/github/hpc_vllm/vllm-openai_v0.7.3.sif pip install git+https://github.com/huggingface/transformers.git
+```
+
 ### 依照自己的需求編修 vllm.sh , vllm_1node.slurm , vllm_2nodes.slurm
 - 編修以下幾個變數
 ```
